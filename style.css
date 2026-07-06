@@ -1,38 +1,63 @@
+body {
+    background-color: #0B0F19; 
+}
 
 h1 {
+    font-family: 'Times New Roman';
+    font-size: 40px;
     text-align: center;
-    margin-bottom: 20px;
+    color: #FFFFFF; 
 }
+
 .events-container {
-    display: flex;         /* Lines items horizontally */
-    justify-content: center; /* Centers the whole row on screen */
-    gap: 20px;             /* Adds space between the boxes */
-    background-color: light rgb(69, 11, 21);
-
-  }
-
-/* 2. Style for each individual card box */
-.card {
-    border: 1px solid black;
-    padding: 15px;
-    width: 250px;          /* Fixed size so they all fit on one screen */
-    text-align: center;
+    display: flex;         
+    justify-content: center; 
+    gap: 50px;             
 }
 
-/* 3. Forces all images to look identical in size */
+.card {
+    margin-top: 30px;  
+    border: none;
+    padding: 20px; 
+    width: 250px;       
+    background-color: #161C2A; 
+    border-radius: 12px; 
+    text-align: center
+}
+.card:hover {
+    transform: scale(1.03); 
+    transition: 2s;
+    box-shadow: 0 0 30px 10px rgb(10, 10, 68)
+}
+.card h2 {
+    font-family: cursive;
+    font-size: 20px;
+    color: #FFFFFF; 
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-family: cursive;
+    margin: 5px;
+    color: #94A3B8; 
+    text-align: left;
+}
+
 .card img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;    /* Prevents the image from stretching distortion */
+    height: 200px;
+    object-fit: cover;    
+    border-radius: 6px; 
 }
 
-/* 4. Simple styling for the registration button */
 .card button {
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    background-color: yellow;
-    color: green;
-    border:  2 px solid black;
+    background-color: #3B82F6; 
+    color: #FFFFFF;
+    border: none;
+    border-radius: 40px;
     cursor: pointer;
-    margin-top: 10px;
-}
+    margin-top: 15px;
+    font-weight: bold; 
+}    
