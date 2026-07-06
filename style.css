@@ -1,0 +1,38 @@
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.events-container {
+    display: flex;         /* Lines items horizontally */
+    justify-content: center; /* Centers the whole row on screen */
+    gap: 20px;             /* Adds space between the boxes */
+    background-color: light rgb(69, 11, 21);
+
+  }
+
+/* 2. Style for each individual card box */
+.card {
+    border: 1px solid black;
+    padding: 15px;
+    width: 250px;          /* Fixed size so they all fit on one screen */
+    text-align: center;
+}
+
+/* 3. Forces all images to look identical in size */
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;    /* Prevents the image from stretching distortion */
+}
+
+/* 4. Simple styling for the registration button */
+.card button {
+    width: 100%;
+    padding: 10px;
+    background-color: yellow;
+    color: green;
+    border:  2 px solid black;
+    cursor: pointer;
+    margin-top: 10px;
+}
