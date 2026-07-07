@@ -1,0 +1,87 @@
+body {
+    background-color: #0B0F19; 
+    display: flex;            
+    flex-direction: column;    
+    align-items: center; 
+}
+h1 {
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    text-align: center;
+    color: #FFFFFF; 
+    margin-bottom: 50px;
+}
+#registration-form {
+    width: 50%;
+    height: 500px;
+    background-color: #161C2A; 
+    padding: 20px 40px 20px 50px;
+}
+#eventTitle {
+    font-family: cursive;
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+.main-body {
+    display: flex;
+    flex-direction: column;
+    gap: 50px
+}
+.select-option{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 70px;
+}
+.inputs {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 5px;
+    font-family: cursive;
+    color: white;
+    font-size: 20px;
+}
+.textbox {
+    background-color: #161C2A;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 15px;
+}
+.selection {
+    margin-left: 50px;
+    background-color: #161C2A;
+    color: white;
+    text-align: center;
+    border: 2px solid white;
+    outline: none;
+    appearance: none;
+    width: 200px
+}
+.selection option {
+    background-color: #191d26;
+} 
+.selection option:nth-of-type(even) {
+    background-color: #0a1122;
+}
+#btns{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.buttons{
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    background-color: #3B82F6; 
+    color: #FFFFFF;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+

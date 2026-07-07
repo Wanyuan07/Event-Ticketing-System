@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>Registration</title>
+        <link rel="stylesheet" href="./registration.css">
+    </head>
+
+    <body>
+        <h1>Event Registration</h1>
+        <div id="registration-form">
+            <div id="eventTitle"></div>
+            <section class="main-body">
+                <div class="inputs">
+                    Name
+                    <input name="name-box" class="textbox" placeholder="Enter your full name....">
+                </div>
+
+                <div class="select-option">
+                    <div class="inputs">
+                        Age
+                        <select id="age" class="selection">
+                            <option hidden selected>--Select Your Age--</option>
+                            <option>10-20</option>
+                            <option>20-30</option>
+                            <option>30-40</option>
+                            <option>40-50</option>
+                            <option>50-60</option>
+                            <option>60+</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        Gender
+                        <select id="gender" class="selection">
+                            <option hidden selected>--Select Your Gender--</option>
+                            <option>He/Him</option>
+                            <option>She/Her</option>
+                            <option>They/Them</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputs">
+                    Phone Number
+                    <input name="number-box" class="textbox" placeholder="Enter your phone number....">
+                </div>
+
+                <div class="inputs">
+                    E-Mail
+                    <input name="mail-box" class="textbox" placeholder="Enter your mailing address....">
+                </div>      
+            </section>
+
+            <div id="errorMsg"></div>
+            <div id="btns">
+                <button id="clear" class="buttons">Clear</button>
+                <button id="save" class="buttons">Save</button>
+                <button id="cancel" class="buttons">Cancel</button>
+            </div>
+        </div>
+        
+        <script src="registration.js"></script>
+    </body>
+</html>
