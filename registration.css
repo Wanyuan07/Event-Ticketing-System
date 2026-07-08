@@ -93,3 +93,23 @@ h1 {
     margin: 10px 0;                           /* Spacing above and below the box */
 }
 
+/* The green success box */
+.success-message-box {
+    background-color: lightgreen;
+    color: darkgreen;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Space out the links container */
+.social-links {
+    margin-top: 15px;
+}
+
+/* Space out individual links */
+.social-links a {
+    margin: 0 10px;
+    color: blue;
+}
+
