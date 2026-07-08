@@ -83,5 +83,13 @@ h1 {
     border-radius: 40px;
     cursor: pointer;
 }
-
+.error-box {
+    background-color:  light rgb(175, 31, 175); /* Light red background */
+    color: rgb(220, 38, 38);                 /* Dark red text */
+    border: 1px solid rgb(239, 68, 68);       /* Red border */
+    padding: 12px;                            /* Breathing room inside */
+    border-radius: 6px;                       /* Rounded corners */
+    text-align: center;                       /* Centers your text 🎯 */
+    margin: 10px 0;                           /* Spacing above and below the box */
+}
 
