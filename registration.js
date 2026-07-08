@@ -3,15 +3,46 @@ document.getElementById("eventTitle").innerHTML = eventName;
 // 1. Initialize an empty array to hold the names of missing fields
 let events_registration = JSON.parse(localStorage.getItem("registration")) || {};
 console.log(events_registration);
+let allRegistrations = events_registration ; // varaible named twice is not allowed, so I have changed the name of the variable to allRegistrations . 
+
+
+// let allRegistrations = JSON.parse(localStorage.getItem("registration")) || {};
+let djSeats = 1000;
+let MovieSeats = 500 ;
+let gameSeats = 300;
+let djCount = 0;
+let MovieCount = 0;
+let gamesCount = 0;
+if(allRegistrations["DJ Night"]){
+    djCount = Object.keys(allRegistrations["DJ Night"]).length;
+}
+if(allRegistrations["Movie Night"]){
+    MovieCount = Object.keys(allRegistrations["Movie Night"]).length;
+}
+if(allRegistrations["Games Night"]){
+    gamesCount = Object.keys(allRegistrations["Games Night"]).length;
+
+
+
+}
+document.getElementById("djFilled").innerText = djCount;
+document.getElementById("movieFilled").innerText = MovieCount;
+document.getElementById("gamesFilled").innerText = gamesCount;
+djnightRemaining = document.getElementById("djnightRemaining").innerText = djSeats - djCount;
+movieRemaining = document.getElementById("movieRemaining").innerText = MovieSeats - MovieCount;
+gamesRemaining = document.getElementById("gamesRemaining").innerText = gameSeats - gamesCount;
+
+
+
 
 if (!events_registration[eventName]) {events_registration[eventName] = {}};
-
+document.getElementById("save").addEventListener("click", function() {
 let name = document.getElementsByName("name-box")[0];
 let number = document.getElementsByName("number-box")[0];
 let mail = document.getElementsByName("mail-box")[0];
 let gender = document.getElementById("gender");
 let age = document.getElementById("age");
-document.getElementById("save").addEventListener("click", function() {
+
     let missingFields = [];
 
 
@@ -70,10 +101,10 @@ document.getElementById("save").addEventListener("click", function() {
 
         let successBox = document.getElementById("successBox");
     successBox.innerHTML = `
-        <h2>🎉 Thank You!</h2>
-        <p>Your Registration ID is: <strong>#${uniqueId}</strong></p>
+        <h2>🎉 Thank You!</h2>        
         <p>You have successfully registered for the event!</p>
         <p>Will keep you posted on further updates on your email and phone number.</p>
+        
         <div class="social-links">
             <strong>Follow us:</strong>
             <a href="https://instagram.com" target="_blank">Instagram</a> | 
@@ -99,6 +130,9 @@ document.getElementById("clear").addEventListener("click", function() {
     let successBox = document.getElementById("successBox");
     successBox.innerHTML = ""; // This wipes out the Thank You text
     successBox.classList.remove("success-message-box"); // This removes the green styling box
+});
+    document.getElementById("home").addEventListener("click", function() {
+    window.location.href = "./index.html";
 });
     document.getElementById("cancel").addEventListener("click", function() {
     window.location.href = "./index.html" ;
