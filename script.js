@@ -6,4 +6,5 @@ for (let i = 0; i < button.length; i++) {
         localStorage.setItem("event-name", `${eventName[i].innerText}`);
         window.location.href = "./registration.html";     
     })
-}    
+}  
+
