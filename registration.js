@@ -1,39 +1,10 @@
 let eventName = localStorage.getItem("event-name");
 document.getElementById("eventTitle").innerHTML = eventName;
-// 1. Initialize an empty array to hold the names of missing fields
+console.log(eventName.replace(" ", "a").split("").filter(letter => letter.toUpperCase() == letter).join(""))
+
+let seatCount = JSON.parse(localStorage.getItem("seat-number"))
 let events_registration = JSON.parse(localStorage.getItem("registration")) || {};
 console.log(events_registration);
-let allRegistrations = events_registration ; // varaible named twice is not allowed, so I have changed the name of the variable to allRegistrations . 
-
-
-// let allRegistrations = JSON.parse(localStorage.getItem("registration")) || {};
-let djSeats = 1000;
-let MovieSeats = 500 ;
-let gameSeats = 300;
-let djCount = 0;
-let MovieCount = 0;
-let gamesCount = 0;
-if(allRegistrations["DJ Night"]){
-    djCount = Object.keys(allRegistrations["DJ Night"]).length;
-}
-if(allRegistrations["Movie Night"]){
-    MovieCount = Object.keys(allRegistrations["Movie Night"]).length;
-}
-if(allRegistrations["Games Night"]){
-    gamesCount = Object.keys(allRegistrations["Games Night"]).length;
-
-
-
-}
-document.getElementById("djFilled").innerText = djCount;
-document.getElementById("movieFilled").innerText = MovieCount;
-document.getElementById("gamesFilled").innerText = gamesCount;
-djnightRemaining = document.getElementById("djnightRemaining").innerText = djSeats - djCount;
-movieRemaining = document.getElementById("movieRemaining").innerText = MovieSeats - MovieCount;
-gamesRemaining = document.getElementById("gamesRemaining").innerText = gameSeats - gamesCount;
-
-
-
 
 if (!events_registration[eventName]) {events_registration[eventName] = {}};
 document.getElementById("save").addEventListener("click", function() {
@@ -45,9 +16,6 @@ let age = document.getElementById("age");
 
     let missingFields = [];
 
-
-
-// 2. Check each field individually and push its name to the array if empty
     if (name.value.trim().length === 0) {
         missingFields.push("Name");
     }
@@ -77,6 +45,10 @@ let age = document.getElementById("age");
         document.getElementById("errorMsg").innerHTML = "❗Phone Number invalid"; 
         document.getElementById("errorMsg").classList.add("error-box");
     }
+    else if (events_registration[eventName][number.value]) {
+        document.getElementById("errorMsg").innerHTML = "❗Phone Number already exists"; 
+        document.getElementById("errorMsg").classList.add("error-box");
+    }
     else if (!mail.value.trim().includes("@gmail.com")) {
         document.getElementById("errorMsg").innerHTML = "❗E-mail invalid";
         document.getElementById("errorMsg").classList.add("error-box");
@@ -90,50 +62,31 @@ let age = document.getElementById("age");
         events_registration[eventName][number.value]["age"] = `${age.value}`;
         events_registration[eventName][number.value]["gender"] = `${gender.value}`;
         events_registration[eventName][number.value]["mail"] = `${mail.value.trim()}`;
+        seatCount[eventName] += 1
+        let eventKey = eventName.replace(" ", "a").split("").filter(letter => letter == letter.toUpperCase()).join("")
+        events_registration[eventName][number.value]["uniqueID"] = `${eventKey}-${number.value.slice(-4)}-${seatCount[eventName]}`;
+        localStorage.setItem("seat-number", JSON.stringify(seatCount));
         localStorage.setItem("registration", JSON.stringify(events_registration));
-        let currentRegisteredCount = Object.keys(events_registration[eventName]).length;
-        let uniqueId = currentRegisteredCount + 1;
-
-        // Save this ID inside their registration object
-        events_registration[eventName][number.value]["id"] = uniqueId;
-        localStorage.setItem("registration", JSON.stringify(events_registration));
-
 
         let successBox = document.getElementById("successBox");
-    successBox.innerHTML = `
-        <h2>🎉 Thank You!</h2>        
-        <p>You have successfully registered for the event!</p>
-        <p>Will keep you posted on further updates on your email and phone number.</p>
-        
-        <div class="social-links">
-            <strong>Follow us:</strong>
-            <a href="https://instagram.com" target="_blank">Instagram</a> | 
-            <a href="https://twitter.com" target="_blank">Twitter</a> | 
-            <a href="https://facebook.com" target="_blank">Facebook</a>
-        </div>
-    `;
-    successBox.classList.add("success-message-box");
-
-    
-   
-}
- 
+        document.getElementById("unique").innerHTML = `Your UniqueID: #${events_registration[eventName][number.value]["uniqueID"]}`;
+        successBox.showModal()
     }
-)
+});
+
+
 document.getElementById("clear").addEventListener("click", function() {
     name.value = "";
     age.value = "--Select Your Age--";
     mail.value = "";
     number.value = "";
     gender.value = "--Select Your Gender--";
-
-    let successBox = document.getElementById("successBox");
-    successBox.innerHTML = ""; // This wipes out the Thank You text
-    successBox.classList.remove("success-message-box"); // This removes the green styling box
 });
-    document.getElementById("home").addEventListener("click", function() {
+
+document.getElementById("home").addEventListener("click", function() {
     window.location.href = "./index.html";
 });
-    document.getElementById("cancel").addEventListener("click", function() {
+
+document.getElementById("cancel").addEventListener("click", function() {
     window.location.href = "./index.html" ;
 })
