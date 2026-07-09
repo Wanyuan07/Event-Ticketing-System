@@ -8,18 +8,8 @@
     </head>
 
     <body>
-
         
         <h1>Event Registration</h1>
-        <div id="seats-info-box">
-            <h3>Seats Information</h3>
-            <p>Seats: <span id="djFilled">0</span> filled in DJ night out of 1000 (<span id="djnightRemaining">1000</span> left)</p>
-            <p>Seats: <span id="movieFilled">0</span> filled in Movie night out of 500 (<span id="movieRemaining">500</span> left)</p>
-            <p>Seats: <span id="gamesFilled">0</span> filled in Games night       out of 300 (<span id="gamesRemaining">300</span> left)</p>
-        </div> 
-        
-        <div class="page-container">
-
 
         <div id="registration-form">
             <div id="eventTitle"></div>
@@ -64,13 +54,25 @@
                 </div>      
             </section>
 
+            <dialog id="successBox">
+                <h2>🎉 Thank You!</h2>        
+                <p>You have successfully registered for the event!</p>
+                <p id="unique"></p>
+                <p>Will keep you posted on further updates on your email and phone number.</p>
+                <div class="social-links">
+                    <strong>Follow us:</strong>
+                    <a href="https://instagram.com" target="_blank">Instagram</a> | 
+                    <a href="https://twitter.com" target="_blank">Twitter</a> | 
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                </div>
+                <button id="home" class="buttons">Home</button>
+            </dialog>
+
             <div id="errorMsg"></div>
-            <div id="successBox"></div>
             <div id="btns">
                 <button id="clear" class="buttons">Clear</button>
                 <button id="save" class="buttons">Save</button>
                 <button id="cancel" class="buttons">Cancel</button>
-                <button id="home" class="buttons">Home</button>
             </div>
         </div>
         
